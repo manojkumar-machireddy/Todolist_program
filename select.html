@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+</head>
+<body>
+<select size="5" multiple id="element">
+<option>priya</option>
+<option>manoj</option>
+<option>anup</option>
+</select>
+<input type="button" value="->" onclick="forward()">
+<input type="button" value="<-" onclick="reverse()">
+<select multiple size="5" id="next">
+</select>
+
+<script>
+function forward(){
+var x = document.getElementById("element");
+var store = [];
+var add = document.getElementById("next");
+for (i=0;i<x.options.length;i++){
+if(x.options[i].selected){
+store.push(x.options[i]);
+}}
+for (j=0;j<store.length;j++){
+add.appendChild(store[j])
+}
+}
+function reverse(){
+
+var y = document.getElementById("next");
+var user = y.options[y.selectedIndex];
+var z = document.getElementById("element");
+z.appendChild(user);
+}
+</script>
+</body>
+</html>
