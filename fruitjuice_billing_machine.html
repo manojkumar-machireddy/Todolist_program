@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+<style type="text/css">
+     div {
+	 border: 2px black solid;
+	 padding : 10px;
+	 width:500px
+	 }
+
+</style>
+</head>
+<body>
+<div>
+<h1>select which juice you want</h1>
+<input type="button" id="10" value="mango" onclick="func(this)"> <br />
+<input type="button" id="20" value="grape" onclick ="func(this)"><br />
+<input type="button" id="30" value="orange" onclick="func(this)"><br />
+
+<input type="button" id="billing" value="get bill" onclick="display_bill()">
+</div>
+
+<script type="text/javascript">
+ var bill = 0;
+function func(obj){
+
+var money = Number(obj.id);
+var order = Number(prompt("enter the number of juices"));
+bill = bill + (money * order);
+ }
+ 
+function display_bill(){
+ alert(bill)
+ }
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
