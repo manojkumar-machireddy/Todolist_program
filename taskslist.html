@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+<head>
+<style>
+    
+	#tasks_table {
+	    border: 2px solid green;
+        height: 500px;
+        width : 600px;	
+        float : left; 		
+	     padding : 2px;
+		}
+	#tasks_complete_table {
+	    border: 2px solid green;
+        height: 500px;
+        width : 600px;
+        display : inline-block;
+		margin-left :20px;
+        }			 
+</style>
+</head>
+<body>
+<div id="tasks_table">
+<h1><em>Displays your current added tasks</em ></h1>
+
+</div>
+<div id="tasks_complete_table">
+<h1><em>Displays your completed tasks list</em></h1>
+</div><br /><br />
+<input type="button" value="addtask" id="taskaddition" onclick="adding_tasks()" /><br /><br />
+<input type="button" value="deltask" id="taskdeletion" onclick="deleting_tasks()" /><br /><br />
+<input type="button" value="movetask" id="taskmoving" onclick="moving_tasks()" /><br />
+
+<script>
+//this function is used for adding tasks
+var count = 0;
+function adding_tasks(){
+if (isNaN(count)){
+  alert("id is no found")
+  }
+else{
+count = count + 1;
+}
+var task = prompt("enter your task description ");
+var para = document.createElement("P");
+var t = document.createTextNode("Task number is: " + count +  " Task is : " + task);
+para.appendChild(t);
+para.id = count;
+var task_box = document.getElementById("tasks_table");
+task_box.appendChild(para);
+}
+
+//this funciton is used for deleting tasks
+
+function deleting_tasks(){
+var result = prompt("enter the task number you want to remove");
+var r = document.getElementById(result)
+var rem = document.getElementById("tasks_table")
+rem.removeChild(r);
+}
+
+// this funciton is for selecting completed tasks and moving them to other box
+
+function moving_tasks(){
+var result = prompt("enter the task number which you want to mark as completed");
+var r = document.getElementById(result);
+var rem = document.getElementById("tasks_table")
+rem.removeChild(r);
+var moving = document.getElementById("tasks_complete_table");
+moving.appendChild(r);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
