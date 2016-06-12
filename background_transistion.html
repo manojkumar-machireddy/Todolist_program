@@ -1,0 +1,40 @@
+<!doctype HTML>
+<html>
+<head>
+<style type="text/css">
+    #moving {
+	       height: 300px;
+		   width : 350px;
+	       overflow:scroll;
+	        } 
+	#content  {
+	   height: 1000px;
+	   width : 1000px;
+	   background-color:#000000;
+	         }
+	  
+</style>
+</head>
+<body>
+
+<div id="moving" onscroll="myfunc()">
+<div id="content"></div>
+</div
+<p id="check"></p>
+<script>
+var temperature = 0;
+var faren = 0;
+function myfunc(){
+var element = document.getElementById("moving")
+var x = element.scrollLeft;
+var y = element.scrollTop;
+temperature = (x - 32)*(5/9);
+faren = (temperature * 9/5 ) + 32;
+temp = x
+document.getElementById("content").style.backgroundColor = "#"+ x.toString(16)+"0000";
+document.getElementById("check").innerHTML = "celsius :" + temperature + "<br>faren :" + faren; 
+}
+
+</script>
+</body>
+</html>
