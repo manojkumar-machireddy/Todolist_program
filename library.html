@@ -1,0 +1,142 @@
+<!doctype html>
+<html>
+<head>
+<title>BookLibrary</title>
+<style type ="text/css">
+  h1 {background-color : #DDDDDD;
+      text-align      : center;
+      }
+  body {background-color: #001f3f
+  
+       }
+  table { width : 100%;
+          background-color:#AAAAAA
+          border-collapse : collapse;
+        }
+  th    { height : 150%;
+           }
+  tr:nth-child(even){background-color: #DDDDDD}
+  #table_wraaper  { background-color : #AAAAAA
+            }
+  #addbutton {
+               position :absolute;
+			   top :95%;
+			   left : 50%
+			   
+			  
+  
+               }
+  
+</style>
+
+</head>
+<body>
+<h1><em>Library</em></h1>
+<div id ="table_wraaper">
+<table id="fields">
+             <tr id = "headings">
+			              <th>Select</th>
+						  <th>id</th>
+                          <th>Book-Name</th>
+						  <th>Author</th>
+						  <th>Pages</th>
+						  <th>Date-of-Publish</th>
+						  
+			</tr>
+			
+		
+</table>
+</div>
+<div id="addbutton">
+<input type = "button" onclick = "addrows()" value = "Add_your_Book">
+<input type = "button" onclick = "delrows()" value = "Delete_your_Book">
+</div>
+<script>
+ var count = 0;
+function addrows(){
+var table = document.getElementById("fields");
+    
+    var row = table.insertRow(1);
+	row.id = count++
+    var cell0 = row.insertCell(0);
+	var element = document.createElement("input");
+	element.type = "checkbox";
+	element.name = "chkbox";
+	cell0.appendChild(element);
+	var cell1 = row.insertCell(1);
+	var cell2 = row.insertCell(2);
+	var cell3 = row.insertCell(3);
+	var cell4 = row.insertCell(4);
+	var cell5 = row.insertCell(5)
+	var book_name = prompt("enter the book name :");
+	var author_name = prompt("enter the author name:");
+	var book_pages = prompt("enter the number of pages in a book:");
+	var dop = prompt("enter the published date in format: DAY/MONTH/YEAR:");
+	cell1.innerHTML = row.id;
+    cell2.innerHTML = book_name;
+    cell3.innerHTML = author_name;
+	cell4.innerHTML = book_pages;
+	cell5.innerHTML = dop;
+   
+	return count;
+}
+
+function delrows(){
+var row_no = Number(prompt("enter Unique_Book_ID you want to delete:"));
+var table = document.getElementById("fields");
+var row_count = table.rows.length;
+alert(row_count);
+for (var i = 0; i<row_count; i++){
+if (row_no == table.rows[i].id){
+alert(table.rows[i].id);
+table.deleteRow(i)
+break;
+}
+}
+}
+</script>
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>
